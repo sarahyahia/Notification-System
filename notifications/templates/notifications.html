@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title%}
+  Notifications
+{% endblock%}
+
+{% block body %}
+
+  {% for notif in notifications %}
+
+    {% if notif.isRead %}
+      <li class="list-group-item list-group-item-secondary">
+        <h6>{{ notif.title }}</h6>
+        {{ notif.msg }}
+        <span class="float-right text-mute">{{ notif.created }}</span>
+      </li>
+    {% else %}
+      <li class="list-group-item list-group-item-primary">
+        <h6>{{ notif.title }}</h6>
+        {{ notif.msg }}
+        <span class="float-right text-mute">{{ notif.created }}</span>
+      </li>
+    {% endif %}
+
+  {% endfor %}
+
+{% endblock %}
